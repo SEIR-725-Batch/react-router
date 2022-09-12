@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Nav from './components/Nav';
+import Currencies from './components/Currencies';
+import Main from './components/Main';
+import Price from './components/Price';
+import Four04 from './components/404';
+import { Routes, Route, Outlet } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+
+  const [crypto, setCrpto] = useState([]);
+  // Some API call to get all crypto 
+  // prices and then pass that as props
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Lets send Doge to the moon!</h1>
+      <Nav />
+      <Outlet />
+      <Routes >
+        <Route path='/' element={<Main crypto={crypto}/>} />
+        <Route path='/currencies/' >
+          <Route path='' element={<Currencies />} />
+          <Route path=':symbol' element={<Price />} />
+        </Route>
+        {/* <Route exact path='/currencies/:symbol' element=... */}
+        <Route exact path='/*' element={<Four04 />} />
+      </Routes>
+    </>
   );
 }
 
