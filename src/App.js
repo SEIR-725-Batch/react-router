@@ -19,13 +19,13 @@ function App() {
       <Nav />
       <Outlet />
       <Routes >
-        <Route path='/' element={<Main crypto={crypto}/>} />
+        <Route exact path='/' element={<Main crypto={crypto}/>} />
         <Route path='/currencies/' >
-          <Route path='' element={<Currencies />} />
+          <Route exact path='' element={<Currencies />} />
           <Route path=':symbol' element={<Price />} />
         </Route>
         {/* <Route exact path='/currencies/:symbol' element=... */}
-        <Route exact path='/*' element={<Four04 />} />
+        <Route path='/*' element={<Four04 />} />
       </Routes>
     </>
   );

@@ -20,11 +20,11 @@ const Currencies = () => {
                 //     name: coin.name,
                 //     symbol: coin.symbol
                 // }
-                coin.nonsense = "Eric's bored"
+                coin.key = idx
                 console.log(coin);
 
                 return (
-                    <Link to={`/currencies/${coin.symbol}`}>
+                    <Link key={coin.key} to={`/currencies/${coin.symbol}`}>
                         <h2>{coin.name}</h2>
                     </Link>
                 );

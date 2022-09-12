@@ -5,6 +5,7 @@ const Price = (props) => {
   // Our api key from coinapi.io
   const apiKey = "5C61AFA1-048D-42DA-8588-B2733B742D46";
   const {symbol} = useParams()
+  console.log(symbol)
   // console.log(params)
   // Grabbing the Currency symbol from the URL Param  // Using the other two variables to create our URL
   const url = `http://rest-sandbox.coinapi.io/v1/exchangerate/${symbol}/USD?apikey=${apiKey}`;

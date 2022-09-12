@@ -1,7 +1,7 @@
 function Main (props) {
     console.log(props.thisIsMain);
     return (
-        <h1>This shows my Main</h1>
+        <h1>This shows my Main or whatever nonsense I want here</h1>
     )
 }
 
